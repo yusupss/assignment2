@@ -8,7 +8,7 @@ const authenticationMiddleware = require('../middlewares/authentication-middlewa
 // GET /
 router.get('/', (req, res) => {
   res.status(201).json({
-    message: "welcome to assignment2"
+    message: "Welcome to The Final Project"
   });
 });
 

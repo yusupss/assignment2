@@ -6,7 +6,7 @@ const router = require('express').Router();
 router.get('/', TodosController.findAll);
 
 // GET /todos/:id
-router.get('/:id', TodosController.findById);
+router.get('/:id', authorizationMiddleware, TodosController.findById);
 
 // POST /photos
 router.post('/', TodosController.insertTodo);
