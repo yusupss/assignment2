@@ -28,6 +28,9 @@ function errorHandler(error, req, res, next) {
   } else if (error.name === 'NotFound') {
     code = 404;
     message = 'not found';
+  } else if (error.name === 'BadRequest') {
+    code = 400;
+    message = 'bad request';
   } else {
     code = 500;
     message = 'internal server error';

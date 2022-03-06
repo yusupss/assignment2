@@ -7,6 +7,8 @@ class SignInController {
   static async signIn(req, res, next) {
     const { email, password } = req.body;
     try {
+      if (!email) throw { name: 'BadRequest' }
+      if (!password) throw { name: 'BadRequest' }
       const result = await User.findOne({ where: { email } });
       if (!result) throw { name: 'SignInFailed' };
       if (!compare(password, result.password)) throw { name: 'SignInFailed' };
