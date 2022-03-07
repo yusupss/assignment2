@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon bin/www",
-    "test": "NODE_ENV=test npx jest --detectOpenHandles"
+    "test": "NODE_ENV=test npx jest --detectOpenHandles",
+    "citest": "npx jest --detectOpenHandles"
   },
   "repository": {
     "type": "git",

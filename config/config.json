@@ -7,11 +7,19 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
+    "username": "postgres",
+    "password": "12345678",
+    "database": "assignment2_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
+  },
+  "citest": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "assignment2_test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
   },
   "production": {
     "username": "root",
