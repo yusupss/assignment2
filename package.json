@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon bin/www",
+    "start": "node bin/www",
+    "dev": "NODE_ENV=development nodemon bin/www",
     "test": "NODE_ENV=test npx jest --detectOpenHandles",
     "citest": "npx jest --detectOpenHandles"
   },
