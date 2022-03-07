@@ -16,9 +16,16 @@ class TodosController {
   static async findById(req, res, next) {
     const { id } = req.params;
     try {
-      const todo = await Todo.findByPk(id);
+      const todo = await Todo.findByPk(id, {
+        include: {
+          model: User,
+          attributes: {
+            exclude: ['password']
+          }
+        }
+      });
       if (!todo) throw { name: 'NotFound' };
-      res.status(200).json(todoo);
+      res.status(200).json(todo);
     } catch (error) {
       next(error);
     }
@@ -27,7 +34,10 @@ class TodosController {
   static async insertTodo(req, res, next) {
     const { title, description, due_date } = req.body;
     try {
-      const dueDate = moment(due_date)
+      let dueDate = ""
+      if (due_date || due_date != ""){
+        dueDate = moment(due_date)
+      }
       const result = await Todo.create({ title, description, due_date: dueDate, UserId: req.user.id });
       res.status(201).json(result);
     } catch (error) {
